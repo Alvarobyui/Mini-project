@@ -4,7 +4,7 @@ export default function nav(args) {
     <nav>
       <ul>
         <li>
-          <img src={args.data[0].photo} alt="Imagen" />
+          <img src={args.data.photo} alt="Imagen" />
         </li>
       </ul>
     </nav>
