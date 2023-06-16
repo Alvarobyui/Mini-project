@@ -1,11 +1,14 @@
 /* import { useEffect, useState } from "react";
  */import "./App.css";
-import TryCard from "./components/Card.jsx";
+import Card from "./components/Card.jsx";
+import Nav from "./components/Navi.jsx";
+import "./App.css"
 
 function App() {
   return (
     <>
-      <TryCard />
+      <Nav />
+      <Card />
     </>
     
   )
