@@ -1,6 +1,16 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import Nav from "./nav.jsx";
+import Card from "./components/Card.jsx";
+import data2 from "../stays.json";
+
+/* function Card(props) {
+  return (
+    <section key={props.i}>
+      <h1 key={i}>{el.city}</h1>
+      <img src={props.src} alt="photo" />
+    </section>
+  )
+} */
 
 
 function App() {
@@ -22,21 +32,14 @@ function App() {
 
   // Este Hook te va a ejecutar la función getData cada vez que la página se renderice.
   useEffect(() => {
-     getData();
+    getData();
   }, []);
 
   // Puedes ver la variable data en consola.
   console.log(data);
-  console.log(data[0].photo);
-  return (
-    <>
-    {/* Aquí te dejo un ejemplo de cómo podrías imprimir varios elementos a la vez. */}
-      {data.map((el, i) => {
-        return <h1 key={i}>{el.city}</h1>;
-      })}
-     <Nav />
-    </>
-  );
+  console.log(data2);
+  
+  
 }
 
 export default App;
