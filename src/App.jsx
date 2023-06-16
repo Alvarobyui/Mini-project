@@ -35,7 +35,39 @@ function App() {
     return(
     <>
       {data.map((el, i) => {
-        return <h1 key={i}>{el.city}</h1>;
+        return (
+        <>
+          <img src={el.photo} key={i} alt="imagen" />
+          <div key={i} className="texto-box">
+            {function cardInfo() {
+              if (el.superHost === true) {
+                return (
+                  <div className="for-super-host">
+                    <span id="superHost">Super Host</span>
+                    <p className="type-text">{el.type}</p>
+                    <p>{el.beds} beds</p>
+                    <div className="rating-box">
+                      <img src="star.png" alt="i" />
+                      <p className="rating-text">{el.rating}</p>
+                    </div>
+                  </div>
+                );
+              } else {
+                return (
+                  <div className="no-super-host">
+                    <p className="type-text">{el.type}</p>
+                    <div className="rating-box">
+                      <img src="star.png" alt="i" />
+                      <p className="rating-text">{el.rating}</p>
+                    </div>
+                  </div>
+                );
+              }
+            }()}
+            <h2>{el.title}</h2>
+          </div>
+        </>
+        )
       })}
     </>
     );
