@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import Card from "./components/Card.jsx";
 import data2 from "../stays.json";
 
 /* function Card(props) {
@@ -39,7 +38,7 @@ function App() {
   console.log(data);
   console.log(data2);
   
-  
+
 }
 
 export default App;
