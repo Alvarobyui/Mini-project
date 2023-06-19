@@ -38,7 +38,7 @@ export default function Navi() {
   useEffect(() => {
     getData();
     setlista(data);
-  }, []);
+  }, [data]);
 
   function filterData(e) {
     let inputValue = e.target.value.toLowerCase();
