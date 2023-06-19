@@ -37,7 +37,6 @@ export default function Navi() {
 
   useEffect(() => {
     getData();
-    setlista(data);
   }, []);
 
   function filterData(e) {
