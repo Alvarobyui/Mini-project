@@ -88,7 +88,6 @@ nav div {
   transition: all 0.5s ease;
   height: 40vh;
   width: 100%;
-  border: 1px solid red;
   /*   background-color: rgba(0, 0, 0, 0.5); /* Ajusta el nivel de opacidad según tus necesidades */
 }
 
@@ -97,16 +96,41 @@ ul {
   flex-direction: column;
   gap: 1rem;
 }
+ul input {
+  width: 30px;
+  height: 30px;
+}
 ul li {
   list-style: none;
   display: flex;
   gap: 0.5rem;
   align-items: center;
 }
+.guests input {
+  text-align: center;
+  border: none;
+}
+.guests button {
+  text-align: center;
+  border: 1px solid black;
+  height: 30px;
+  width: 30px;
+}
+.guests {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  font-size: 20px;
+}
 a {
   text-decoration: none;
   color: black;
 }
+.open .search-box .button-container button svg {
+    color: white;
+}
+
 
 
 /*Estilos cuando esta cerrado*/
@@ -122,6 +146,7 @@ a {
   color: #EB5757E5;
   text-align: center;
 }
+
 
 .search-container {
   display: flex;

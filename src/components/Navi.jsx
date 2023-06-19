@@ -1,7 +1,6 @@
 import "./Navi.css";
 import logo from "../img/logo.png";
 import { useEffect, useState } from "react";
-import { Card } from "./Card.jsx";
 
 export default function Navi() {
   // evento para desplegar navbar
@@ -126,16 +125,16 @@ export default function Navi() {
                     >
                       <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
                     </svg>
-                    <a onClick={Card.filterCards.city} href="#">{`${el.city}, ${el.country}`}</a>
+                    <a href="#">{`${el.city}, ${el.country}`}</a>
                   </li>
                 ))}
               </ul>
             </div>
             <div className="guests-result">
-              <ul>
-                <li>hola</li>
-                <li>no me</li>
-                <li>sdfhsdf</li>
+              <ul className="guests">
+                <button>-</button>
+                <input type="text" placeholder="0"/>
+                <button>+</button>
               </ul>
             </div>
           </div>
@@ -143,27 +142,4 @@ export default function Navi() {
       </div>
     </nav>
   );
-}
-{
-  /* <div className="pos-f-t">
-  <div className="collapse" id="navbarToggleExternalContent">
-    <div className="bg-dark p-4">
-      <h4 className="text-white">Collapsed content</h4>
-      <span className="text-muted">Toggleable via the navbar brand.</span>
-    </div>
-  </div>
-  <nav className="navbar navbar-dark bg-dark">
-    <button
-      className="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarToggleExternalContent"
-      aria-controls="navbarToggleExternalContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span className="navbar-toggler-icon" />
-    </button>
-  </nav>
-</div> */
 }
