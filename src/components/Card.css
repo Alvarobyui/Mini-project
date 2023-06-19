@@ -1,0 +1,81 @@
+
+svg {
+  color:#EB5757;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 4rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5rem;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+  overflow: cover;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.div-img {
+  overflow: cover;
+}
+
+.card-box {
+  flex: 1 0 300px; /* Ajusta el ancho deseado para cada tarjeta */
+  margin: 10px;
+  width: 400px;
+  height: 370px;
+}
+
+.no-super-host {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.rating-box {
+  display: flex;
+  gap: 0.2rem;
+  align-items: center;
+}
+
+p {
+  margin: 0;
+}
+
+/*otra*/
+.for-super-host {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 15px;
+  justify-content: space-between;
+}
+
+#superHost {
+  border: 1px solid gray;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+.for-super-host .rating-box{
+  justify-self: end;
+}
+
+p {
+  color: gray;
+}
+
+.rating-box {
+  margin-left: auto;
+}
