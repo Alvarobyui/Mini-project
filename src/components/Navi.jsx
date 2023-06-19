@@ -26,7 +26,7 @@ export default function Navi() {
   const getData = async () => {
     // Esta sentencia try-catch sirve para manejar los errores que se podrían generar al importar los datos de "stays.json".
     try {
-      const res = await fetch("stays.json");
+      const res = await fetch("../../stays.json");
       const resJson = await res.json();
 
       setData(resJson);
