@@ -1,10 +1,18 @@
 import "./Navi.css";
 import logo from "../img/logo.png";
 import { useEffect, useState } from "react";
+import { Card } from "./Card.jsx";
 
 export default function Navi() {
-  const [navOpen, setNavOpen] = useState(true);
+  // evento para desplegar navbar
+  const [navOpen, setNavOpen] = useState(false);
+  // evento para ocultar elementos
   const [hiding, setHiding] = useState(true);
+  // evento para hacer petición de "API"
+  const [data, setData] = useState([]);
+  // Evento para filtrar data
+  const [lista, setlista] = useState(data);
+
 
   const handleMouseEnter = () => {
     setNavOpen(true);
@@ -14,6 +22,42 @@ export default function Navi() {
     setNavOpen(false);
     setHiding(true);
   };
+
+  // Función para traer los datos de "stays.json".
+  const getData = async () => {
+    // Esta sentencia try-catch sirve para manejar los errores que se podrían generar al importar los datos de "stays.json".
+    try {
+      const res = await fetch("stays.json");
+      const resJson = await res.json();
+
+      setData(resJson);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+    setlista(data);
+  }, []);
+
+  function filterData(e) {
+    let inputValue = e.target.value.toLowerCase();
+
+    if (inputValue === "") {
+      setlista(data);
+    } else {
+      const arrayFiltered = data.filter((element) => {
+        return (
+          element.city.toLowerCase().includes(inputValue) ||
+          element.country.toLowerCase().includes(inputValue)
+        );
+      });
+
+      setlista(arrayFiltered);
+    }
+  }
+
 
   return (
     <nav>
@@ -37,6 +81,7 @@ export default function Navi() {
                 placeholder="Add location"
                 type="text"
                 className="location-input"
+                onKeyUp={filterData}
               />
             </div>
             <div className="input-container">
@@ -66,12 +111,24 @@ export default function Navi() {
               </button>
             </div>
           </div>
-          <div className={`${hiding ? "close" : ""}`}>
+          <div className={`result-box ${hiding ? "close" : ""}`}>
             <div className="location-result">
-              <ul>
-                <li>hola</li>
-                <li>no me</li>
-                <li>sdfhsdf</li>
+              <ul className="location-list">
+                {lista.map((el, index) => (
+                  <li key={index}>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      className="bi bi-geo-alt-fill"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+                    </svg>
+                    <a onClick={Card.filterCards.city} href="#">{`${el.city}, ${el.country}`}</a>
+                  </li>
+                ))}
               </ul>
             </div>
             <div className="guests-result">
@@ -81,7 +138,6 @@ export default function Navi() {
                 <li>sdfhsdf</li>
               </ul>
             </div>
-            
           </div>
         </div>
       </div>

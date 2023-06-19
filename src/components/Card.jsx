@@ -1,7 +1,11 @@
+/* import {Navi} from "./Navi.jsx"; */
 import { useEffect, useState } from "react";
 
 export default function Card() {
   const [data, setData] = useState([]);
+   // Evento para mostrar las card ya filtradas
+/*    const [cards, setCards] = useState([]);
+ */
 
   // Función para traer los datos de "stays.json".
   const getData = async () => {
@@ -16,17 +20,23 @@ export default function Card() {
     }
   };
 
+/*   function filterCard(location) {
+    const arrayFiltered = data.filter((element) => {
+      return element.city === location;
+    })
+  } */
+
   useEffect(() => {
     getData();
   }, []);
 
   return (
     <>
-      {data.map((el, i) => {
+      {data.map((el, index) => {
         return (
           <>
-            <img src={el.photo} key={i} alt="imagen" />
-            <div key={i} className="texto-box">
+            <img src={el.photo} key={index} alt="imagen" />
+            <div key={index} className="texto-box">
               {(function cardInfo() {
                 if (el.superHost === true) {
                   return (
